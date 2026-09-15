@@ -32,6 +32,8 @@
   --gutter: max(6vw, calc((100vw - 1440px) / 2));
   --tab-h: 3rem;
   --fold: 28px;
+  /* Grão de papel: aplicado ao fundo das superfícies, nunca sobre fotos, celulares ou texto. */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='2.4' intercept='-.7'/%3E%3CfeFuncG type='linear' slope='2.4' intercept='-.7'/%3E%3CfeFuncB type='linear' slope='2.4' intercept='-.7'/%3E%3CfeFuncA type='linear' slope='0' intercept='.3'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* ---------- Base ---------- */
@@ -119,17 +121,6 @@ summary { cursor: pointer; }
   border-radius: var(--fold) var(--fold) 0 0;
   margin-top: calc(-1 * var(--fold));
   box-shadow: 0 -22px 48px -24px rgba(39, 13, 19, .45);
-}
-/* Grão de papel sobre tudo: textura material, sem gradiente decorativo. */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  pointer-events: none;
-  opacity: .26;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='2.4' intercept='-.7'/%3E%3CfeFuncG type='linear' slope='2.4' intercept='-.7'/%3E%3CfeFuncB type='linear' slope='2.4' intercept='-.7'/%3E%3CfeFuncA type='linear' slope='0' intercept='1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 /* Aba: presa ao alto da pasta, fica visível enquanto a pasta está aberta. */
 .tab {
@@ -546,6 +537,12 @@ body::before {
 .contact { isolation: isolate; }
 .contact-bottom { display: flex; justify-content: space-between; gap: 2rem; border-top: 1px solid var(--line-light); padding-top: 1.5rem; margin-top: 5rem; font-size: var(--step--1); font-weight: 500; }
 .contact-bottom a { white-space: nowrap; }
+
+/* ---------- Papel: o grão vive no fundo de cada superfície ---------- */
+.section, .folder, .casa, .folder-cover, .cover-prelude, .folder-link, .folder-link > span, .folder-front, .site-header, .marketing-experience, .lp-numbers, .tab {
+  background-image: var(--grain);
+  background-blend-mode: overlay;
+}
 
 /* ---------- Motion: três momentos, todos guiados pelo scroll ---------- */
 @supports (animation-timeline: view()) {
