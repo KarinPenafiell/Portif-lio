@@ -9,12 +9,10 @@ Ao abrir o arquivo diretamente no computador, o clique em um vídeo abre o YouTu
 
 ARQUIVOS
 index.html — conteúdo e estrutura da página
-css/style.css — estilos principais
-css/editorial.css — capa e estrutura editorial revisada
-css/visual.css — cores, tipografia, currículo e mockups de celular
-js/main.js — menu, vídeos e animações sutis
+css/style.css — estilos, tokens de design, fontes locais e movimento guiado pelo scroll
+js/main.js — menu, vídeos, indicação da seção atual nas abas e empilhamento das pastas ao rolar
 assets/images — retrato profissional, miniaturas e registros do canal
-assets/fonts — fontes locais e suas licenças
+assets/fonts — arquivos woff2 (Cormorant Garamond e Manrope) e suas licenças
 assets/data — dados mensais e documentação das fontes
 
 CONTEÚDO E DADOS
