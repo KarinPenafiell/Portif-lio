@@ -1,0 +1,27 @@
+PORTFÓLIO — KARIN PENAFIEL
+
+COMO ABRIR
+Extraia todo o ZIP e abra index.html no navegador. Mantenha as pastas css, js e assets ao lado do HTML.
+
+O layout, as fontes, as fotos, as miniaturas e o gráfico funcionam sem servidor e sem conexão. Internet é necessária para assistir aos vídeos e abrir links externos.
+
+Ao abrir o arquivo diretamente no computador, o clique em um vídeo abre o YouTube. Na versão servida por um site, o player carrega dentro da página após o clique. Todos os vídeos também têm um link direto para o YouTube.
+
+ARQUIVOS
+index.html — conteúdo e estrutura da página
+css/style.css — estilos principais
+css/editorial.css — capa e estrutura editorial revisada
+css/visual.css — cores, tipografia, currículo e mockups de celular
+js/main.js — menu, vídeos e animações sutis
+assets/images — retrato profissional, miniaturas e registros do canal
+assets/fonts — fontes locais e suas licenças
+assets/data — dados mensais e documentação das fontes
+
+CONTEÚDO E DADOS
+O portfólio foi construído a partir do briefing, do PDF profissional e dos arquivos enviados. Resultados do canal e das landing pages são apresentados como resultados dos projetos, com suas janelas de análise. Informações inconsistentes não foram utilizadas. Consulte assets/data/fontes.md para os critérios de seleção.
+
+PUBLICAÇÃO
+Publique o conteúdo desta pasta em uma hospedagem de sites estáticos, preservando a estrutura. Nenhum backend ou instalação de dependências é necessário. O HTML não inventa domínio nem canonical; esses campos podem ser configurados para o endereço definitivo.
+
+ACESSIBILIDADE
+Menu por teclado, links com foco visível, tabela alternativa ao gráfico e respeito à preferência de movimento reduzido. Os players são carregados somente após a escolha do visitante.
