@@ -283,16 +283,15 @@ body::before {
 .about-portrait { margin-top: -16rem; position: relative; z-index: 2; }
 .about-portrait img { width: 100%; max-height: 640px; object-fit: cover; object-position: center 30%; border: 10px solid var(--paper); filter: saturate(.82) contrast(.96); }
 /* Bloco de cor deslocado atrás do retrato: camada, não moldura. */
-.about-portrait::before { content: ''; position: absolute; inset: 2.2rem -2.2rem -2.2rem 2.2rem; background: var(--blue); z-index: -1; }
+.about-portrait::before { content: ''; position: absolute; inset: 1.4rem -1.4rem auto 1.4rem; height: calc(100% - 2.6rem - 1.4rem); background: var(--blue); z-index: -1; }
 /* Passagem de cor da paleta sobre a foto. */
 .about-portrait::after { content: ''; position: absolute; inset: 10px 10px auto 10px; height: calc(100% - 20px - 2.6rem); background: var(--wine); mix-blend-mode: soft-light; opacity: .5; pointer-events: none; }
 .about-copy { position: relative; z-index: 3; }
-.about-copy h2 { margin-left: -28%; mix-blend-mode: multiply; }
+
 .about-portrait figcaption { display: flex; align-items: baseline; gap: .8rem; margin-top: 1rem; font-size: var(--step--1); font-weight: 600; }
 .about-portrait figcaption em { font: italic 400 1.7rem/1 var(--serif); color: var(--wine); }
 .about-copy h2 { margin-bottom: 2.5rem; }
 .about-copy .lead { margin-bottom: 1.5rem; }
-.about-copy p:not(.lead) { margin-left: 12%; }
 .about-copy p:not(.lead) { color: #54463c; }
 .about-actions { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: 2.2rem; }
 
@@ -573,8 +572,7 @@ body::before {
   .about, .about-grid, .case-opening, .podcast-grid, .lp-feature, .lp-pair, .career-heading, .marketing-experience, .career-foundation, .skills-grid, .casa-layout { grid-template-columns: 1fr; }
   .case-opening h2, .skills-grid > h2 { position: static; }
   .case-opening > div, .podcast-copy { margin-top: 0; }
-  .about-copy h2, .selected-heading h2, .contact h2 { margin-left: 0; }
-  .about-copy p:not(.lead) { margin-left: 0; }
+  .selected-heading h2, .contact h2 { margin-left: 0; }
   .podcast-cover-bottom, .episodes { margin-left: 0; }
   .episode-heading { grid-template-columns: 1fr; }
   .lp-numbers { margin: 0 calc(-1 * var(--gutter)) 0 0; box-shadow: none; }
@@ -626,7 +624,7 @@ body::before {
   .folder-position, .cover-about-link { margin-left: 0; }
   .about .spine { margin-top: 2.5rem; }
   .about-portrait { width: 72%; max-width: 340px; justify-self: end; margin-top: -7rem; margin-right: 1.5rem; }
-  .about-portrait::before { inset: 1.4rem -1.4rem -1.4rem 1.4rem; }
+  .about-portrait::before { inset: 1rem -1rem auto 1rem; height: calc(100% - 2.6rem - 1rem); }
   .about-portrait img { max-height: 440px; }
   .about-portrait figcaption { display: block; }
   .about-portrait figcaption em { display: block; margin-top: .2rem; }
