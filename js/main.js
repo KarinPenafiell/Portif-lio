@@ -60,3 +60,23 @@ const stick = () => folders.forEach(folder => folder.style.setProperty('--stick'
 stick();
 window.addEventListener('resize', stick);
 window.addEventListener('load', stick);
+
+// Pan continuously across the uncut artwork; touch and slider stay in sync.
+document.querySelectorAll('.social-phone').forEach(phone => {
+  const artwork = phone.querySelector('.phone-artwork');
+  const slider = phone.querySelector('.phone-pan');
+  const maximum = () => Math.max(0, artwork.scrollWidth - artwork.clientWidth);
+  const sync = () => {
+    const limit = maximum();
+    slider.value = limit ? Math.max(0, Math.min(100, artwork.scrollLeft / limit * 100)) : 0;
+  };
+  slider.addEventListener('input', () => {
+    artwork.scrollLeft = maximum() * Number(slider.value) / 100;
+  });
+  artwork.addEventListener('scroll', sync, { passive: true });
+  artwork.querySelector('img').addEventListener('load', sync);
+  window.addEventListener('resize', sync);
+  phone.querySelector('.phone-pan-controls').hidden = false;
+  phone.classList.add('has-pan-control');
+  sync();
+});
