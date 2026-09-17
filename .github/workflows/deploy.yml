@@ -1,0 +1,35 @@
+# Publica na Vercel a cada push: main vai para produção, outros branches viram preview.
+# Precisa do segredo VERCEL_TOKEN no repositório (Settings → Secrets and variables → Actions).
+name: Deploy na Vercel
+
+on:
+  push:
+    branches: ['**']
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  VERCEL_ORG_ID: team_1xwammYEyEoLNC8YM0S5n3sd
+  VERCEL_PROJECT_ID: prj_KOQV59IUgSyD60YowiTyMcwSOlp1
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Conferir segredo
+        if: ${{ secrets.VERCEL_TOKEN == '' }}
+        run: echo "::error::Falta o segredo VERCEL_TOKEN no repositório (Settings → Secrets and variables → Actions)." && exit 1
+      - run: npm i -g vercel@latest
+      - name: Deploy
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then TARGET=--prod; else TARGET=--target=preview; fi
+          vercel deploy $TARGET --yes --token="${{ secrets.VERCEL_TOKEN }}" | tee deploy.log
+          echo "### Deploy" >> "$GITHUB_STEP_SUMMARY"
+          grep -oE 'https://[a-z0-9.-]+\.vercel\.app' deploy.log | tail -1 >> "$GITHUB_STEP_SUMMARY"
