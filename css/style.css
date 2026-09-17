@@ -168,6 +168,8 @@ summary { cursor: pointer; }
 .contact-button.secondary { background: transparent; color: var(--wine); }
 .contact-button:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
 .contact-button:active { transform: translateY(1px); }
+.contact-icon { width: 1.25rem; height: 1.25rem; flex-shrink: 0; }
+.contact-button > span:first-of-type { flex: 1; }
 
 /* ---------- Cabeçalho ---------- */
 .site-header {
@@ -181,18 +183,10 @@ summary { cursor: pointer; }
 .wordmark span { color: var(--wine); }
 .header-caption { font-size: var(--step--1); font-weight: 600; }
 .site-header nav { display: flex; gap: 2.2rem; margin-left: auto; font-size: .9rem; font-weight: 500; }
-.site-header nav a:last-child { border-bottom: 1px solid; }
 .menu-toggle { display: none; }
 
 /* ---------- Capa: o arquivo fechado ---------- */
-.folder-cover { padding: 0; background: var(--cream); }
-.cover-prelude {
-  display: flex; justify-content: space-between; align-items: center; gap: 2rem;
-  padding: 3rem var(--gutter) 5rem;
-  background: var(--blue); color: var(--ink);
-}
-.cover-prelude p { font-size: var(--step-1); font-weight: 500; }
-.cover-prelude > span { font-size: var(--step--1); font-weight: 600; }
+.folder-cover { padding: 4.5rem 0 0; background: var(--blue); }
 .folder-navigation { display: block; }
 .folder-link {
   display: block; position: relative;
@@ -234,12 +228,7 @@ summary { cursor: pointer; }
   box-shadow: 0 -22px 48px -24px rgba(39, 13, 19, .55), inset 0 1px 0 rgba(255, 247, 233, .18);
 }
 .folder-note {
-  display: table;
-  font: italic 400 clamp(1.6rem, 3vw, 2.8rem)/1.2 var(--serif);
-  border-bottom: 1px solid currentColor;
-  padding: 0 .6rem .35rem;
-  margin-left: 7%;
-  transform: rotate(-5deg);
+  font: 400 var(--step-0)/1.5 var(--sans);
   max-inline-size: none;
 }
 .portfolio-display {
@@ -247,20 +236,20 @@ summary { cursor: pointer; }
   white-space: nowrap;
   font-size: var(--step-5);
   line-height: 1;
-  margin: 0 auto 1.5rem;
+  margin: 1.5rem auto 2.5rem;
   max-inline-size: none;
 }
-.portfolio-display strong { font: 700 .76em/1 var(--sans); letter-spacing: -.08em; }
+.portfolio-display > span { font: 400 .76em/1 var(--sans); letter-spacing: -.06em; }
 .portfolio-display em { font: italic 400 1.2em/1 var(--serif); letter-spacing: -.045em; }
 .folder-front h1 {
   font: 700 clamp(1.8rem, 3vw, 3rem)/1.15 var(--sans);
   letter-spacing: -.035em;
-  margin-left: 7%;
+  margin-left: 0;
 }
-.folder-position { font-size: var(--step--1); font-weight: 500; margin: .6rem 0 0 7%; }
+.folder-position { font-size: var(--step-0); font-weight: 400; margin: .6rem 0 0; }
 .cover-about-link {
   display: inline-flex; gap: 1.5rem; align-items: center;
-  margin: 2rem 0 0 7%;
+  margin: 2rem 0 0;
   padding-bottom: .3rem;
   border-bottom: 1px solid var(--line-light);
   font-size: var(--step--1); font-weight: 600;
@@ -326,7 +315,8 @@ summary { cursor: pointer; }
 .big-result > div > .small-heading { margin-top: 1.2rem; }
 .big-result > p { font-size: var(--step--1); margin-top: .3rem; }
 .result-context { font-size: .9rem; opacity: .85; max-inline-size: 60ch; margin-top: .8rem; }
-.channel-metrics { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+.channel-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+.youtube .case-opening h2 { font-size: clamp(2.5rem, 4.5vw, 5rem); max-inline-size: 20ch; }
 .channel-metrics strong { display: block; font: 500 var(--step-3)/1.1 var(--serif); color: #a4d6f6; font-variant-numeric: lining-nums tabular-nums; }
 .channel-metrics span { display: block; font-size: var(--step--1); line-height: 1.5; margin-top: .4rem; }
 .channel-metrics small { font-size: inherit; opacity: .8; }
@@ -481,6 +471,37 @@ summary { cursor: pointer; }
 .casa-videos { grid-template-columns: 1fr 1.45fr; gap: 2rem; align-items: start; }
 .casa-videos .short:nth-child(2) { margin-top: -6rem; }
 
+/* ---------- Orthosiso: campanha e carrossel ---------- */
+.orthosiso { position: relative; background: var(--cream); color: var(--wine); }
+.orthosiso-work { display: grid; grid-template-columns: .75fr 1fr; gap: clamp(2rem, 6vw, 6rem); align-items: start; }
+.orthosiso-promo img { width: 100%; height: auto; }
+.orthosiso-promo figcaption { margin-top: .8rem; font-size: var(--step--1); }
+/* Compact phone: each artwork stays below its native resolution. */
+.orthosiso-phone-demo { min-width: 0; width: 100%; max-width: 340px; margin: 2rem auto 0; }
+.orthosiso-phone-demo > .small-heading { margin-bottom: 1rem; }
+.social-phone { width: 280px; max-width: 100%; margin-inline: auto; padding: 14px 8px 12px; border: 5px solid #27252a; border-radius: 36px; background: #fff; color: #213435; box-shadow: 0 14px 26px -18px #270d1380, inset 0 0 0 1px #aaa; overflow: hidden; }
+.phone-camera { width: 66px; height: 14px; margin: 0 auto 18px; border-radius: 12px; background: #171512; }
+.phone-profile { display: flex; align-items: center; gap: 8px; padding: 0 8px 12px; font-size: 11px; }
+.phone-profile > span:last-child { margin-left: auto; }
+.phone-avatar { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: #073e41; color: #fff; }
+.phone-artwork { aspect-ratio: 1; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; scrollbar-width: thin; }
+.phone-artwork img { width: calc(100% * 2048 / 410); max-width: none; height: auto; }
+.social-phone.has-pan-control .phone-artwork { scrollbar-width: none; }
+.social-phone.has-pan-control .phone-artwork::-webkit-scrollbar { display: none; }
+.phone-artwork:focus-visible { outline: 3px solid var(--wine); outline-offset: -3px; }
+.phone-pan-controls { display: flex; align-items: center; gap: 8px; height: 54px; padding: 10px 8px 0; }
+.phone-pan-controls[hidden] { display: none; }
+.phone-pan { flex: 1; min-width: 0; height: 44px; margin: 0; accent-color: #073e41; cursor: ew-resize; }
+.phone-pan:focus-visible { outline: 2px solid var(--wine); outline-offset: 2px; }
+.phone-caption { padding: 12px 10px 24px; font-size: 12px; line-height: 1.5; }
+.phone-home { width: 90px; height: 4px; border-radius: 4px; background: #171512; margin: 0 auto; }
+.orthosiso-phone-demo > .text-link { margin-top: 1rem; }
+@media (max-width: 767px) {
+  .orthosiso-work { grid-template-columns: 1fr; }
+  .orthosiso-promo { width: 85%; }
+  .orthosiso-phone-demo { margin-top: 0; }
+}
+
 /* ---------- Atuação ---------- */
 .skills { background: var(--paper); color: var(--wine); }
 .skills-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 7%; align-items: start; }
@@ -502,7 +523,7 @@ summary { cursor: pointer; }
 .career-heading > p { max-inline-size: 40ch; }
 .marketing-experience { display: grid; grid-template-columns: .95fr 1.2fr; gap: 4rem; padding: 3rem var(--gutter) 3rem 3rem; margin-right: calc(-1 * var(--gutter)); background: var(--wine); color: var(--cream); --rule: var(--line-light); box-shadow: -18px 18px 0 var(--blue); }
 .marketing-position > h3 { font: 700 clamp(4rem, 11vw, 12rem)/.9 var(--sans); letter-spacing: -.07em; margin: .6rem 0 0 -.06em; color: var(--cream); text-shadow: .03em .03em 0 var(--blue); }
-.company-description { margin: .5rem 0 2rem; font-size: .9rem; }
+.company-description { margin: clamp(1.5rem, 3vw, 3rem) 0 2rem; font-size: .9rem; }
 .career-role h4 { font-size: var(--step-1); font-weight: 600; line-height: 1.3; margin-bottom: .3rem; }
 .career-role p { font-size: var(--step--1); }
 .marketing-scope > h4 { font: 500 var(--step-3)/1 var(--serif); letter-spacing: -.02em; margin-bottom: 1.5rem; }
@@ -539,7 +560,7 @@ summary { cursor: pointer; }
 .contact-bottom a { white-space: nowrap; }
 
 /* ---------- Papel: o grão vive no fundo de cada superfície ---------- */
-.section, .folder, .casa, .folder-cover, .cover-prelude, .folder-link, .folder-link > span, .folder-front, .site-header, .marketing-experience, .lp-numbers, .tab {
+.section, .folder, .casa, .folder-cover, .folder-link, .folder-link > span, .folder-front, .site-header, .marketing-experience, .lp-numbers, .tab {
   background-image: var(--grain);
   background-blend-mode: overlay;
 }
@@ -604,10 +625,7 @@ summary { cursor: pointer; }
   .menu-toggle { display: block; margin-left: auto; border: 0; background: none; color: var(--wine); padding: .4rem 0; font-size: .9rem; font-weight: 600; }
   .site-header nav { display: none; width: 100%; margin: 0; flex-direction: column; gap: .8rem; padding: .5rem 0; }
   .site-header nav.is-open { display: flex; }
-  .site-header nav a:last-child { border: 0; }
-  .cover-prelude { display: block; padding: 2rem var(--gutter) 4rem; }
-  .cover-prelude p { font-size: var(--step-0); max-inline-size: 24ch; }
-  .cover-prelude > span { display: block; margin-top: .8rem; }
+  .folder-cover { padding-top: 3.5rem; }
   .folder-link { height: 40px; }
   .folder-link > span { font-size: .9rem; padding: .4rem 1.6rem 1.3rem; clip-path: polygon(0 100%, .6rem 7px, .75rem 3px, .95rem 1px, 1.1rem 0, calc(100% - 1.1rem) 0, calc(100% - .95rem) 1px, calc(100% - .75rem) 3px, calc(100% - .6rem) 7px, 100% 100%); }
   .folder-youtube > span { left: 56%; }
@@ -615,7 +633,6 @@ summary { cursor: pointer; }
   .folder-copy > span { left: 48%; }
   .folder-social > span { left: 6%; }
   .folder-front { padding: 1.4rem var(--gutter) 6rem; }
-  .folder-note { font-size: 1.5rem; margin-left: 3%; }
   .portfolio-display { font-size: clamp(3.8rem, 17vw, 8rem); margin: .8rem auto 1.6rem; }
   .folder-front h1 { font-size: 1.8rem; margin-left: 0; }
   .folder-position, .cover-about-link { margin-left: 0; }
