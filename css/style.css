@@ -677,3 +677,20 @@ summary { cursor: pointer; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Ajustes editoriais — revisão de setembro/2026 */
+.folder-cover { padding-top: 4.5rem; }
+.selected-heading h2 em { font-family: var(--serif); font-weight: 500; font-style: italic; }
+.orthosiso { background: var(--paper); color: var(--ink); }
+.orthosiso-gallery { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: start; margin-top: 3rem; }
+.orthosiso-gallery figure:nth-child(2) { margin-top: 8rem; }
+.document-crop { overflow: hidden; background: #fff; }
+.document-crop img { width: 100%; }
+.orthosiso-gallery figcaption { border-top: 1px solid currentColor; margin-top: .8rem; padding-top: .7rem; font-size: var(--step--1); font-weight: 600; }
+.marketing-position h3 { line-height: .82; margin-bottom: 1rem; }
+.company-description { position: relative; z-index: 1; }
+@media (max-width: 700px) {
+  .folder-cover { padding-top: 3rem; }
+  .orthosiso-gallery { grid-template-columns: 1fr; }
+  .orthosiso-gallery figure:nth-child(2) { margin-top: 0; }
+}
